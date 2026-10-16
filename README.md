@@ -33,6 +33,23 @@ Pull Requests und Änderungen auf `main` werden mit Node.js 22 und 24 geprüft. 
 
 Unter **Actions → Website checks → erfolgreicher Lauf → Artifacts → serkowla-upload** steht das Upload-Paket für 30 Tage bereit. Es wird nur als Download erstellt, nicht auf einen Hostingdienst übertragen. Das erzeugte ZIP wird nicht im Quellcode versioniert.
 
+## GitHub Pages: vorbereitet, nicht aktiviert
+
+Der Workflow [Publish website (manual)](./.github/workflows/pages.yml) ist ausschließlich manuell startbar. Ein Push oder Pull Request veröffentlicht nichts. Ohne ausdrückliche Bestätigung im Workflow werden die Veröffentlichungsjobs übersprungen.
+
+Vor dem ersten Start:
+
+1. Die rechtlichen Angaben vervollständigen und die Entwurfskennzeichnungen nach inhaltlicher Prüfung entfernen.
+2. Unter **Settings → Pages → Build and deployment** als Quelle **GitHub Actions** auswählen.
+3. Domaininhaberschaft möglichst über die GitHub-Kontoeinstellungen für Pages und den dort vorgegebenen TXT-Eintrag bestätigen.
+4. `serkowla.com` als benutzerdefinierte Pages-Domain hinterlegen und die erforderlichen Website-DNS-Einträge bei IONOS nach der aktuellen GitHub-Dokumentation konfigurieren. Vorher bestehende Einträge sichern. MX-, SPF-, DKIM- und DMARC-Einträge für E-Mail beibehalten; keine Nameserver-Umstellung erforderlich.
+5. Den Workflow auf `main` mit bestätigter Veröffentlichungsfreigabe starten. Er prüft die Website und veröffentlicht ausschließlich die sechs Website-Dateien plus `CNAME` und `.nojekyll`.
+6. Nach erfolgreicher Domain- und Zertifikatsprüfung HTTPS erzwingen. Apex-Domain, `www`-Weiterleitung, Links und E-Mail-Empfang prüfen.
+
+Die Checkbox ist eine ausdrückliche Freigabe, keine automatische rechtliche Prüfung. Der Workflow aktiviert Pages nicht selbst und ändert keine DNS-Einstellungen. Er wurde nur vorbereitet, nicht gestartet.
+
+Offizielle Anleitung: [Benutzerdefinierte Domain für GitHub Pages verwalten](https://docs.github.com/en/pages/configuring-a-custom-domain-for-your-github-pages-site/managing-a-custom-domain-for-your-github-pages-site).
+
 ## Inhalte anpassen
 
 - [index.html](./index.html): Startseite, Leistungen, Über-Bereich und Kontakt.
