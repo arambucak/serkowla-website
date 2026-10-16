@@ -4,7 +4,9 @@
 
 Responsive, deutschsprachige Studio-Website mit vier Produktvorstellungen. Reines HTML, CSS und JavaScript; keine Build-Abhängigkeiten, externen Schriftarten oder Tracker.
 
-**Status:** Website-Entwurf. Das Repository veröffentlicht die Website nicht automatisch. Rechtliche Anbieterangaben und die Hosting-Einrichtung fehlen noch.
+**Website:** [serkowla.com](https://serkowla.com) · Hosting über GitHub Pages, Domain und E-Mail bei IONOS.
+
+**Inhaltlicher Status:** Öffentlich bereitgestellter Entwurf mit ausdrücklich unvollständigen rechtlichen Angaben. Die Veröffentlichung wurde mit diesem Hinweis freigegeben; sie ersetzt keine rechtliche Prüfung. Es wurde keine Wohnanschrift ergänzt.
 
 ## Lokale Vorschau
 
@@ -33,11 +35,11 @@ Pull Requests und Änderungen auf `main` werden mit Node.js 22 und 24 geprüft. 
 
 Unter **Actions → Website checks → erfolgreicher Lauf → Artifacts → serkowla-upload** steht das Upload-Paket für 30 Tage bereit. Es wird nur als Download erstellt, nicht auf einen Hostingdienst übertragen. Das erzeugte ZIP wird nicht im Quellcode versioniert.
 
-## GitHub Pages: vorbereitet, nicht aktiviert
+## GitHub Pages
 
 Der Workflow [Publish website (manual)](./.github/workflows/pages.yml) ist ausschließlich manuell startbar. Ein Push oder Pull Request veröffentlicht nichts. Ohne ausdrückliche Bestätigung im Workflow werden die Veröffentlichungsjobs übersprungen.
 
-Vor dem ersten Start:
+Einrichtung und weitere Veröffentlichungen:
 
 1. Die rechtlichen Angaben vervollständigen und die Entwurfskennzeichnungen nach inhaltlicher Prüfung entfernen.
 2. Unter **Settings → Pages → Build and deployment** als Quelle **GitHub Actions** auswählen.
@@ -46,7 +48,11 @@ Vor dem ersten Start:
 5. Den Workflow auf `main` mit bestätigter Veröffentlichungsfreigabe starten. Er prüft die Website und veröffentlicht ausschließlich die sechs Website-Dateien plus `CNAME` und `.nojekyll`.
 6. Nach erfolgreicher Domain- und Zertifikatsprüfung HTTPS erzwingen. Apex-Domain, `www`-Weiterleitung, Links und E-Mail-Empfang prüfen.
 
-Die Checkbox ist eine ausdrückliche Freigabe, keine automatische rechtliche Prüfung. Der Workflow aktiviert Pages nicht selbst und ändert keine DNS-Einstellungen. Er wurde nur vorbereitet, nicht gestartet.
+Die Checkbox ist eine ausdrückliche Freigabe des aktuellen Inhalts einschließlich sichtbarer Entwurfshinweise, keine Bestätigung der rechtlichen Vollständigkeit. Der Workflow aktiviert Pages nicht selbst und ändert keine DNS-Einstellungen. GitHub Pages wurde eingerichtet und die erste Veröffentlichung am 16. Oktober 2026 erfolgreich ausgeführt.
+
+Die IONOS-Zone verwendet für `@` die vier GitHub-Pages-A-Adressen `185.199.108.153`, `185.199.109.153`, `185.199.110.153` und `185.199.111.153`. `www` verweist per CNAME auf `arambucak.github.io`. Die vorhandenen Mail-, SPF-, DKIM-, DMARC- und Autodiscover-Einträge wurden beibehalten. Ein vollständiger Test des E-Mail-Empfangs erfordert eine tatsächliche Testnachricht.
+
+Ein gültiges Zertifikat für `serkowla.com` und `www.serkowla.com` wurde ausgestellt; HTTPS ist in Pages erzwungen. Die HTTPS-Hauptadresse und die Weiterleitung von `www` wurden geprüft. Alle sechs öffentlich ausgelieferten Website-Dateien wurden mit den lokalen Quelldateien verglichen.
 
 Offizielle Anleitung: [Benutzerdefinierte Domain für GitHub Pages verwalten](https://docs.github.com/en/pages/configuring-a-custom-domain-for-your-github-pages-site/managing-a-custom-domain-for-your-github-pages-site).
 
@@ -59,16 +65,16 @@ Offizielle Anleitung: [Benutzerdefinierte Domain für GitHub Pages verwalten](ht
 
 Die Produktvorschauen sind mit CSS gestaltete, als solche beschriftete Konzeptansichten. Sie stellen keine Original-Screenshots, Store-Verfügbarkeit oder Live-Marktdaten dar.
 
-## Vor Veröffentlichung
+## Offene inhaltliche Aufgaben
 
 1. Namen und persönliche Angaben im Über-Bereich bestätigen.
 2. Das Postfach `info@serkowla.com` und den Empfang von Anfragen prüfen. Der E-Mail-Link ist bereits eingebaut.
 3. Vollständige, auf Anbieter, Sitz und Hosting abgestimmte Impressums- und Datenschutzangaben eintragen und prüfen lassen.
 4. Produktbeschreibungen, Entwicklungsstand und Nutzungsrechte am Logo bestätigen. Bei Verfügbarkeit echte Screenshots und bestätigte Produktlinks ergänzen.
 5. Entwurfskennzeichnung nach Abschluss dieser Schritte entfernen.
-6. Für die Domain HTTPS sowie das gewünschte Hosting einrichten.
+6. Hosting- und Datenschutzangaben an Änderungen der eingesetzten Dienste anpassen.
 
-Für ein statisches Hosting werden nur `index.html`, `rechtliches.html`, `styles.css`, `script.js`, `favicon.svg` und `serkowlalogo.png` benötigt. Der lokale Vorschau-Server ist kein Produktionshosting. Es wurden weder eine Domain noch ein Hostingdienst eingerichtet.
+Für ein statisches Hosting werden nur `index.html`, `rechtliches.html`, `styles.css`, `script.js`, `favicon.svg` und `serkowlalogo.png` benötigt. Der lokale Vorschau-Server ist kein Produktionshosting; die öffentliche Website wird separat von GitHub Pages ausgeliefert.
 
 ## Upload-Paket
 
@@ -81,4 +87,4 @@ zip serkowla-upload.zip index.html rechtliches.html styles.css script.js favicon
 unzip -t serkowla-upload.zip
 ```
 
-Das Paket enthält weiterhin die Entwurfskennzeichnung und unvollständige rechtliche Angaben. Es ist technisch uploadfähig, aber noch nicht für eine öffentliche geschäftliche Veröffentlichung vorbereitet. Hosting und Domain-Zuordnung sind noch nicht eingerichtet. Bestehende DNS-Einträge für E-Mail (insbesondere MX, SPF, DKIM und DMARC) bei einer späteren Einrichtung nicht unbesehen ersetzen.
+Das Paket enthält weiterhin die Entwurfskennzeichnung und unvollständige rechtliche Angaben. Eine technische Veröffentlichung macht diese Angaben nicht vollständig. Bestehende DNS-Einträge für E-Mail (insbesondere MX, SPF, DKIM und DMARC) bei einem späteren Hostingwechsel nicht unbesehen ersetzen.
