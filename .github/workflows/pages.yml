@@ -4,7 +4,7 @@ on:
   workflow_dispatch:
     inputs:
       publish_confirmed:
-        description: "Public launch approved; legal information completed and domain configured"
+        description: "Explicit approval to publish the current website, including its visible draft notices"
         required: true
         type: boolean
         default: false
