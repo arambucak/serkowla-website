@@ -1,0 +1,15 @@
+{
+  "name": "serkowla-website",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Die Website von Serkowla – digitale Lösungen mit Weitblick.",
+  "scripts": {
+    "dev": "node server.mjs",
+    "start": "node server.mjs",
+    "check": "node --check script.js && node --check server.mjs",
+    "test": "node --test website.test.mjs"
+  },
+  "engines": {
+    "node": ">=22"
+  }
+}
